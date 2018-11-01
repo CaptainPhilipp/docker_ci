@@ -9,6 +9,8 @@ script:
   - docker run captainphilipp/frontend npm run test -- --coverage
 
 deploy:
+  on:
+    branch: master
   provider: elasticbeanstalk
   region:   eu-west-2
   app:      docker-react
@@ -18,5 +20,3 @@ deploy:
   access_key_id: $AWS_BEANSTALK_ACCESS_KEY
   secret_access_key:
     secure: $AWS_BEANSTALK_SECRET_KEY
-  on:
-    branch: master
